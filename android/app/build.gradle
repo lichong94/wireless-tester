@@ -1,0 +1,58 @@
+// app 模块构建脚本
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.nzbb.wifitester'
+    compileSdk 33
+    buildToolsVersion "33.0.2"
+
+    defaultConfig {
+        applicationId "com.nzbb.wifitester"
+        minSdk 21          // 兼容 Android 5.0 及以上
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // release 签名：密钥库不纳入版本管理。
+    // 如需正式签名，请在工程根目录新建 keystore.properties（不提交），内容示例：
+    //   storeFile=app/your.jks
+    //   storePassword=xxxx
+    //   keyAlias=xxxx
+    //   keyPassword=xxxx
+    // 未配置该文件时，release 包使用默认 debug 签名。
+    def ksProps = new Properties()
+    def ksFile = rootProject.file("keystore.properties")
+    if (ksFile.exists()) {
+        ksProps.load(new FileInputStream(ksFile))
+        signingConfigs {
+            release {
+                storeFile file(ksProps.getProperty("storeFile", "wifi-tester.jks"))
+                storePassword ksProps.getProperty("storePassword", "")
+                keyAlias ksProps.getProperty("keyAlias", "wifitester")
+                keyPassword ksProps.getProperty("keyPassword", "")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (ksFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
