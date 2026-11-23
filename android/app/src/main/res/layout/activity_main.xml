@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- 标题 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="10dp" />
+
+        <!-- 基础信息区 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:background="#F2F2F2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingEnd="6dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="流程单号" />
+                <EditText android:id="@+id/etOrder" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="单号" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingEnd="6dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="测试区域" />
+                <EditText android:id="@+id/etArea" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="区域" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="测试人员" />
+                <EditText android:id="@+id/etPerson" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="姓名" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:textColor="#555" />
+
+        <!-- 模块一：地址获取 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. 地址获取"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp" />
+
+        <Button
+            android:id="@+id/btnAddrRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="刷新地址信息" />
+
+        <TextView
+            android:id="@+id/tvAddr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2F2F2"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp" />
+
+        <!-- 模块二：信号强度 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. 信号强度"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp" />
+
+        <Button
+            android:id="@+id/btnSignalRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="刷新信号信息" />
+
+        <TextView
+            android:id="@+id/tvSignal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2F2F2"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp" />
+
+        <!-- 模块三：定点 Ping 测试 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. 定点 Ping 测试（默认 100 包）"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="6dp">
+
+            <EditText
+                android:id="@+id/etPingTarget"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="目标地址（网关/内网 IP）"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/etPingCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="包数"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnPingStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始定点 Ping" />
+
+        <TextView
+            android:id="@+id/tvPingResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2F2F2"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp" />
+
+        <!-- 模块四：无线漫游测试（持续 Ping，手动停止） -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. 无线漫游测试（持续 Ping，手动停止）"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="6dp">
+
+            <EditText
+                android:id="@+id/etRoamTarget"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="目标地址（网关/内网 IP）"
+                android:inputType="text" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnRoamStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始漫游测试" />
+
+        <TextView
+            android:id="@+id/tvRoamResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2F2F2"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp" />
+
+        <!-- 报告生成 -->
+        <Button
+            android:id="@+id/btnReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="生成测试报告" />
+
+    </LinearLayout>
+</ScrollView>
