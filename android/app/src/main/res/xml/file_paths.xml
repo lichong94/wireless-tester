@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- 应用专属外部目录下的 reports 子目录，供 FileProvider 共享报告文件 -->
+    <external-files-path name="reports" path="reports/" />
+    <files-path name="reports" path="reports/" />
+</paths>
