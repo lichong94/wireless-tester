@@ -1,0 +1,21 @@
+# Python 缓存与打包产物
+__pycache__/
+*.pyc
+windows/build/
+windows/dist/
+windows/reports/
+
+# Android 构建缓存与本机配置
+.gradle/
+android/build/
+android/app/build/
+android/local.properties
+
+# 签名密钥库（不纳入版本管理）
+*.jks
+*.keystore
+
+# 发布产物与测试截图
+*.apk
+*.zip
+reports/
